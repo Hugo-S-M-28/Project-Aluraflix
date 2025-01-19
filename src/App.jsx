@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./componentes/Header/Header";
-import Banner from "./componentes/Banner/Banner"; 
+import Banner from "./componentes/Banner/Banner";
 import MovieForm from "./componentes/MovieForm/MovieForm";
 import MovieList from "./componentes/CategoryList/CategorySection";
 import EditMovie from "./componentes/EditMovie/EditMovie";
@@ -13,24 +13,23 @@ function App() {
   const [editingMovie, setEditingMovie] = useState(null);
 
   useEffect(() => {
-    // Cambiar URL a la de MockAPI
     axios
       .get("http://localhost:5000/movies")
-      .then((response) => setMovies(response.data)) // Usar la data obtenida de MockAPI
+      .then((response) => setMovies(response.data))
       .catch((error) => console.error("Error al obtener las películas:", error));
   }, []);
 
   const addMovie = (newMovie) => {
     axios
       .post("http://localhost:5000/movies", newMovie)
-      .then((response) => setMovies([...movies, response.data])) // Agregar la nueva película
+      .then((response) => setMovies([...movies, response.data]))
       .catch((error) => console.error("Error al guardar la película:", error));
   };
 
   const deleteMovie = (id) => {
     axios
       .delete(`http://localhost:5000/movies/${id}`)
-      .then(() => setMovies(movies.filter((movie) => movie.id !== id))) // Eliminar la película
+      .then(() => setMovies(movies.filter((movie) => movie.id !== id)))
       .catch((error) => console.error("Error al eliminar la película:", error));
   };
 
@@ -43,7 +42,7 @@ function App() {
             movie.id === updatedMovie.id ? updatedMovie : movie
           )
         );
-        setEditingMovie(null); // Cerrar el formulario de edición
+        setEditingMovie(null);
       })
       .catch((error) =>
         console.error("Error al actualizar la película:", error)
@@ -51,31 +50,31 @@ function App() {
   };
 
   const handleEdit = (movie) => {
-    setEditingMovie(movie); // Activar modo edición
-    setShowForm(false); // Cerrar el formulario de creación si está abierto
+    setEditingMovie(movie);
+    setShowForm(false);
   };
 
   return (
-    <div>
+    <div className="app-container">
       {/* Header */}
       <Header setShowForm={setShowForm} />
-      
-      {/* Banner integrado */}
+
+      {/* Banner */}
       <Banner />
 
-      {/* Formulario para agregar los videos */}
+      {/* Formulario para agregar videos */}
       {showForm && !editingMovie && (
         <MovieForm addMovie={addMovie} closeForm={() => setShowForm(false)} />
       )}
 
-      {/* Lista de videos */}
+      {/* Lista de categorías y videos */}
       <MovieList
         movies={movies}
         deleteMovie={deleteMovie}
         onEdit={handleEdit}
       />
 
-      {/* Modal de edición de videos */}
+      {/* Modal de edición */}
       {editingMovie && (
         <EditMovie
           movie={editingMovie}

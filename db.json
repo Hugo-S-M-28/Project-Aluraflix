@@ -12,7 +12,7 @@
       "id": 2,
       "title": "Que es JavaScript?",
       "category": "Frontend",
-      "imageUrl": "https://raw.githubusercontent.com/Hugo-S-M-28/Project-Aluraflix/refs/heads/main/src/assets/VideoCard.png?token=GHSAT0AAAAAAC4RQLIHEQF3NAYWSJ3AAXAGZ4MKFWQ",
+      "imageUrl": "https://raw.githubusercontent.com/Hugo-S-M-28/Project-Aluraflix/refs/heads/main/src/assets/VideoCard.png",
       "videoUrl": "https://www.youtube.com/watch?v=GJfOSoaXk4s&ab_channel=AluraLatam",
       "description": "Aprende los conceptos básicos de javaScript en este curso introductorio."
     },
@@ -20,7 +20,7 @@
       "id": 3,
       "title": "Equipo Front End",
       "category": "Frontend",
-      "imageUrl": "https://raw.githubusercontent.com/Hugo-S-M-28/Project-Aluraflix/refs/heads/main/src/assets/equipoFrontend.png?token=GHSAT0AAAAAAC4RQLIHZ4VI2R26UPXHLKLYZ4MKLIQ",
+      "imageUrl": "https://raw.githubusercontent.com/Hugo-S-M-28/Project-Aluraflix/refs/heads/main/src/assets/equipoFrontend.png",
       "videoUrl": "https://www.youtube.com/watch?v=rpvrLaBQwgg&ab_channel=AluraLatam",
       "description": "¿Estás empezando tus estudios de Programación? ¿Te interesa todo lo que es la creación de Páginas Web Desarrollo de Softwares? ¿O estás pensando en cambiar de carrera y entrar a la maravillosa area de tecnología?"
     },
@@ -28,7 +28,7 @@
       "id": 4,
       "title": "Spring Framework. ¿Qué es ?",
       "category": "Backend",
-      "imageUrl": "https://raw.githubusercontent.com/Hugo-S-M-28/Project-Aluraflix/refs/heads/main/src/assets/backend1.png?token=GHSAT0AAAAAAC4RQLIHHW7PN7BG2XH6LVPCZ4MKHVQ",
+      "imageUrl": "https://raw.githubusercontent.com/Hugo-S-M-28/Project-Aluraflix/refs/heads/main/src/assets/backend1.png",
       "videoUrl": "https://www.youtube.com/watch?v=t-iqt1b2qqk&ab_channel=AluraLatam",
       "description": "¿Busca un framework para utilizar en sus proyectos? ¿Conoce Spring Framework? Spring es el framework más usado de Java. Nos ofrece herramientas que nos permiten crear proyectos más avanzados, con mejores prácticas y en menor tiempo. También posee una gran comunidad, lo que nos brinda muchísima documentación y ayuda."
     },
@@ -36,7 +36,7 @@
       "id": 5,
       "title": "¿Qué es SQL y NoSQL?",
       "category": "Backend",
-      "imageUrl": "https://raw.githubusercontent.com/Hugo-S-M-28/Project-Aluraflix/refs/heads/main/src/assets/backend2.png?token=GHSAT0AAAAAAC4RQLIGAKUS7XZ66R2JHEMAZ4MKI5Q",
+      "imageUrl": "https://raw.githubusercontent.com/Hugo-S-M-28/Project-Aluraflix/refs/heads/main/src/assets/backend2.png",
       "videoUrl": "https://www.youtube.com/watch?v=cLLKVd5CNLc&ab_channel=AluraLatam",
       "description": "¿Cuáles son las diferencias entre una estructura de datos relacional (SQL) y una no relacional (NoSQL) y cuáles son las principales ventajas de cada una? Álvaro Camacho lo explica en este vídeo."
     },
@@ -74,4 +74,3 @@
     }
   ]
 }
-

@@ -5,14 +5,14 @@ import imageCard from '../../assets/player.png';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import CloseIcon from '@mui/icons-material/Close';
 import ReactPlayer from 'react-player';
-import './Banner.css'; // Importamos el archivo CSS
+import './Banner.css';
 
 const Banner = () => {
     const [open, setOpen] = useState(false); // Estado para abrir/cerrar el popup
     const [videoUrl, setVideoUrl] = useState(''); // URL del video
 
     const handleCardClick = () => {
-        setVideoUrl('https://www.youtube.com/watch?v=ov7vA5HFe6w&ab_channel=AluraLatam'); // Cambia a tu enlace de YouTube
+        setVideoUrl('https://www.youtube.com/watch?v=ov7vA5HFe6w&ab_channel=AluraLatam');
         setOpen(true);
     };
 
@@ -34,20 +34,46 @@ const Banner = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                flexDirection: { xs: 'column', md: 'row' }, // Responsivo: columna en móviles
             }}
         >
             {/* Sección de texto */}
-            <Box className="banner-text" sx={{ maxWidth: '50%' }}>
-                <Typography variant="h5" className="banner-title" gutterBottom>
+            <Box className="banner-text" sx={{ maxWidth: { xs: '90%', md: '50%' } }}>
+                <Typography
+                    variant="h5"
+                    className="banner-title"
+                    gutterBottom
+                    sx={{
+                        backgroundColor: '#29b6f6',
+                        color: 'white',
+                        padding: '7px 10px',
+                        borderRadius: '8px',
+                        display: 'inline-block',
+                        marginBottom: '16px',
+                    }}
+                >
                     FRONT END
                 </Typography>
-                <Typography variant="h3" className="banner-heading" gutterBottom>
+                <Typography
+                    variant="h3"
+                    className="banner-heading"
+                    gutterBottom
+                    sx={{
+                        fontWeight: 'bold',
+                        marginBottom: '16px',
+                        fontSize: { xs: '1.5rem', md: '2rem' },
+                    }}
+                >
                     Challenge React
                 </Typography>
-                <Typography variant="body1" className="banner-description">
-                    Este challenge es una forma de aprendizaje. Es un mecanismo donde
-                    podrás comprometerte en la resolución de un problema para poder
-                    aplicar todos los conocimientos adquiridos en la formación React.
+                <Typography
+                    variant="body1"
+                    className="banner-description"
+                    sx={{ color: 'white', maxWidth: '500px', fontSize: '1rem' }}
+                >
+                    Este challenge es una forma de aprendizaje. Es un mecanismo donde podrás
+                    comprometerte en la resolución de un problema para poder aplicar todos los
+                    conocimientos adquiridos en la formación React.
                 </Typography>
             </Box>
 
@@ -57,11 +83,16 @@ const Banner = () => {
                 onClick={handleCardClick}
                 sx={{
                     cursor: 'pointer',
-                    width: '300px',
-                    height: '200px',
+                    width: { xs: '90%', md: '300px' },
+                    height: { xs: 'auto', md: '200px' },
                     position: 'relative',
                     overflow: 'hidden',
-                    boxShadow: 3,
+                    boxShadow: '0px 4px 20px rgb(40 9 212)',
+                    marginTop: { xs: '20px', md: '0' },
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                        transform: 'scale(1.05)', // Efecto de zoom al hacer hover
+                    },
                     '& img': {
                         width: '100%',
                         height: '100%',
@@ -85,6 +116,11 @@ const Banner = () => {
                         borderRadius: '50%',
                         width: '60px',
                         height: '60px',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                            transform: 'scale(1.2)', // Efecto interactivo en el ícono
+                            opacity: 1,
+                        },
                     }}
                 >
                     <PlayCircleOutlineIcon sx={{ fontSize: 60 }} />
@@ -113,10 +149,10 @@ const Banner = () => {
                     {/* Reproductor de YouTube */}
                     <ReactPlayer
                         url={videoUrl}
-                        playing={true} // Reproducir automáticamente
-                        controls // Mostrar controles
-                        width="100%" // Ocupa todo el ancho del popup
-                        height="500px" // Ocupa todo el alto del popup
+                        playing={true}
+                        controls
+                        width="100%"
+                        height="500px"
                     />
                 </Box>
             </Dialog>
