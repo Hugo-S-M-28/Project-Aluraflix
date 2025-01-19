@@ -3,10 +3,9 @@ import axios from "axios";
 import Header from "./componentes/Header/Header";
 import Banner from "./componentes/Banner/Banner"; 
 import MovieForm from "./componentes/MovieForm/MovieForm";
-import MovieList from "./componentes/MovieList/MovieList";
+import MovieList from "./componentes/CategoryList/CategorySection";
 import EditMovie from "./componentes/EditMovie/EditMovie";
 import Footer from "./componentes/Footer/Footer";
-import Presentacion from "./componentes/Presentacion/Presentacion";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -68,9 +67,6 @@ function App() {
       {showForm && !editingMovie && (
         <MovieForm addMovie={addMovie} closeForm={() => setShowForm(false)} />
       )}
-
-      {/* Sección de presentación */}
-      <Presentacion />
 
       {/* Lista de videos */}
       <MovieList

@@ -1,0 +1,252 @@
+/* Estructura principal */
+.movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 20px;
+}
+
+/* Sección de categorías */
+.category-section {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.category-section h2 {
+    padding: 10px 60px;
+    margin: 2px 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+/* Lista de películas en una categoría */
+.movies-in-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #2271D1 #222;
+}
+
+/* Estilo para cada película */
+.movie-item {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    align-items: center;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 200px;
+}
+
+.movie-item:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen de la película */
+.movie-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Título de la película */
+.movie-item h3 {
+    font-size: 1.2em;
+    color: #FFF;
+    margin-top: 8px;
+}
+
+/* Botonera */
+.botonera {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Botones dentro de las tarjetas */
+.action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #2271D1;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.action-button:hover {
+    background-color: #0056a6;
+}
+
+/* Contenido del botón (Texto e Imagen) */
+.button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Imagen dentro del botón */
+.button-content img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Estilos para la tarjeta expandida */
+.movie-card-expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+  
+.expanded-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    color: #fff;
+}
+  
+.expanded-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+  
+.expanded-content h3 {
+    font-size: 28px;
+    margin-top: 10px;
+}
+  
+.expanded-content p {
+    font-size: 18px;
+}
+  
+.expanded-content p strong {
+    font-weight: bold;
+}
+
+/* Personalización del scroll */
+.movies-in-category::-webkit-scrollbar {
+    height: 8px;
+}
+
+.movies-in-category::-webkit-scrollbar-thumb {
+    background-color: #2271D1;
+    border-radius: 8px;
+}
+
+.movies-in-category::-webkit-scrollbar-track {
+    background-color: #222;
+}
+
+/* Estilo de las categorías */
+.category-section {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.category-section h2 {
+    background-color: #333;
+    padding: 10px 60px;
+    margin: 2px 10px;
+    border: solid 2px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Estilos por categoría */
+.category-section[data-category="Frontend"] {
+    border: 4px solid #29b6f6;
+    box-shadow: 0 0 10px #29b6f6;
+}
+
+.category-section[data-category="Backend"] {
+    border: 4px solid #128818;
+    box-shadow: 0 0 10px #128818;
+}
+
+.category-section[data-category="Innovación"] {
+    border: 4px solid #ffe626;
+    box-shadow: 0 0 10px #ffe626;
+}
+
+.category-section[data-category="Gestión"] {
+    border: 4px solid #ef5350;
+    box-shadow: 0 0 10px #ef5350;
+}
+
+.category-section h2[data-category="Frontend"] {
+    background-color: #29b6f6;
+    color: #fff;
+}
+
+.category-section h2[data-category="Backend"] {
+    background-color: #128818;
+    color: #fff;
+}
+
+.category-section h2[data-category="Innovación"] {
+    background-color: #ffe626;
+    color: #333;
+}
+
+.category-section h2[data-category="Gestión"] {
+    background-color: #ef5350;
+    color: #fff;
+}
+
+/* Ajustes del hover para las películas */
+.movie-item[data-category="Frontend"] {
+    border: 3px solid #29b6f6;
+    box-shadow: 0 0 10px #29b6f6;
+}
+
+.movie-item[data-category="Backend"] {
+    border: 3px solid #128818;
+    box-shadow: 0 0 10px #128818;
+}
+
+.movie-item[data-category="Innovación"] {
+    border: 3px solid #ffe626;
+    box-shadow: 0 0 10px #ffe626;
+}
+
+.movie-item[data-category="Gestión"] {
+    border: 3px solid #ef5350;
+    box-shadow: 0 0 10px #ef5350;
+}

@@ -1,36 +1,59 @@
-header {
-    background-color: #333;
-    color: white;
+/* Estilo general del header */
+.header {
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.header-logo {
+  }
+  
+  /* Logo del header */
+  .header-logo {
     width: auto;
     height: 40px; /* Ajusta el tamaño del logo */
-    object-fit: contain; 
+    object-fit: contain;
   }
-
-header div {
-    margin-top: 10px;
-}
-
-header button {
-    background-color: #333;
-    color: #2271D1;
+  
+  /* Contenedor de botones */
+.header-buttons {
+    display: flex;
+    gap: 15px; /* Espaciado uniforme entre los botones */
+  }
+  
+  /* Botón HOME */
+  .btn-home {
+    background-color: #333; /* Fondo gris oscuro */
+    color: #2271d1; /* Texto azul */
+    border: 2px solid #2271d1; /* Bordes azules */
     padding: 10px 20px;
-    margin: 0 10px;
-    border: solid 2px;
     border-radius: 10px;
     font-size: 1em;
-    cursor: pointer;
     font-weight: 600;
-}
-.btn_nuevo_video{
-    color: #FFF
-}
-header button:hover {
-    background-color: #555;
-}
+    width: 150px; /* Tamaño fijo para uniformidad */
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .btn-home:hover {
+    background-color: #555; /* Fondo más claro al hacer hover */
+  }
+  
+  /* Botón NUEVO VIDEO */
+  .btn-nuevo-video {
+    background-color: #2271d1; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    border: 2px solid #fff; /* Bordes blancos */
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    width: 150px; /* Tamaño fijo para uniformidad */
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .btn-nuevo-video:hover {
+    background-color: #005bb5; /* Azul más oscuro al hacer hover */
+  }
+  

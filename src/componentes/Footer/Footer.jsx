@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import uneLogoImg from '../../assets/image 1.png';
+import uneLogoImg from '../../assets/icons/image 1.png';
 import { Box, Typography } from "@mui/material";
 
 const Footer = () => {
