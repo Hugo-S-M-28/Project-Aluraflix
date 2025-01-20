@@ -1,113 +1,96 @@
-/* Estructura principal */
-.movie-list {
-  display: flex;
-  flex-direction: column;
-  gap: 5%; /* Espaciado dinámico entre las categorías */
-  margin: 5%; /* Márgenes basados en porcentaje */
+/* VARIABLES GLOBALES */
+:root {
+  --primary-color: #29b6f6; /* Color principal */
+  --background-color: #1a1a1a; /* Fondo general */
+  --card-shadow: rgba(40, 9, 212, 0.7); /* Sombra de las tarjetas */
+  --text-color: #ffffff; /* Texto */
+  --transition-time: 0.3s; /* Transición estándar */
 }
 
-/* Sección de categorías */
-.category-section {
-  margin-bottom: 2rem; /* Espaciado entre categorías */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 0.4rem solid; /* Borde relativo al tamaño de la pantalla */
-  box-shadow: 0 0 5%; /* Sombra proporcional al tamaño del contenedor */
-  border-radius: 1%; /* Esquinas redondeadas dinámicas */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 3%; /* Espaciado interno proporcional */
-}
-
-/* Título de la categoría */
-.category-section h2 {
-  padding: 1%; /* Espaciado interno en porcentaje */
-  margin: 1%; /* Márgenes internos en porcentaje */
-  font-size: 1.5rem; /* Tamaño de fuente relativo */
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 1%; /* Bordes redondeados proporcionales */
-  text-transform: uppercase;
-  color: #fff;
-}
-
-/* Lista de películas en una categoría */
-.movies-in-category {
-  display: flex;
-  flex-wrap: wrap; /* Las películas se ajustan automáticamente */
-  gap: 2%; /* Espaciado dinámico entre las películas */
-  overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
-  padding-bottom: 2%; /* Espaciado inferior para mejorar diseño */
-  scrollbar-width: thin;
-  scrollbar-color: #2271D1 #222;
-}
-
-/* Películas individuales */
-.movie-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #333;
-  border-radius: 5%; /* Esquinas dinámicas */
-  padding: 5%; /* Espaciado interno proporcional */
-  text-align: center;
-  transition: transform 0.3s ease;
-  width: 20%; /* Ancho basado en el contenedor */
-  max-width: 200px; /* Límite superior para pantallas grandes */
-  box-shadow: 0 2% 5% rgba(0, 0, 0, 0.1); /* Sombra dinámica */
-  border: 0.3rem solid;
-  overflow: hidden;
-}
-
-.movie-item:hover {
-  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
-}
-
-/* Imagen de la película */
-.movie-item img {
-  width: 100%; /* Imagen escalable dentro del contenedor */
-  aspect-ratio: 16 / 9; /* Proporción fija para la imagen */
-  object-fit: cover;
-  border-radius: 4%; /* Bordes redondeados relativos */
-}
-
-/* Título de la película */
-.movie-item h3 {
-  font-size: 1.2rem;
-  color: #fff;
-  margin-top: 5%; /* Separación proporcional */
-}
-
-/* Botonera */
-.botonera {
-  display: flex;
-  justify-content: center;
-  gap: 5%; /* Espaciado dinámico */
-  width: 100%; /* Ocupa todo el ancho disponible */
-}
-
-/* Botones de acción */
-.action-button {
+/* BANNER PRINCIPAL */
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  color: var(--text-color);
+  min-height: 25vw;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background-color: #2271D1;
-  color: white;
+  justify-content: space-between;
+  flex-direction: column; /* Por defecto columna (móviles) */
+}
+
+.banner-text {
+  max-width: 90%;
+  text-align: center; /* Centrado por defecto */
+}
+
+.banner-title {
+  background-color: var(--primary-color);
+  color: var(--text-color);
   padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4%;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 0.5rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.banner-heading {
   font-weight: bold;
-  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.8rem; /* Base */
 }
 
-.action-button:hover {
-  background-color: #0056a6;
+.banner-description {
+  color: var(--text-color);
+  max-width: 35rem;
+  font-size: 1rem;
 }
 
-/* Tarjeta expandida */
+/* TARJETA FLOTANTE */
+.card {
+  cursor: pointer;
+  width: 90%;
+  max-width: 350px;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px var(--card-shadow);
+  margin-top: 2rem;
+  transition: transform var(--transition-time) ease;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Efecto de zoom */
+}
+
+/* ÍCONO FLOTANTE DE LA TARJETA */
+.card-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  transition: all var(--transition-time) ease;
+}
+
+.card-icon:hover {
+  transform: translate(-50%, -50%) scale(1.2); /* Efecto interactivo */
+}
+
+/* POPUP (DIÁLOGO) */
 .movie-card-expanded {
   position: fixed;
   top: 0;
@@ -118,84 +101,110 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000;
   overflow: auto;
   padding: 5%;
 }
 
 .expanded-content {
-  background-color: #333;
-  padding: 5%; /* Espaciado interno proporcional */
-  border-radius: 2%; /* Bordes redondeados proporcionales */
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 800px;
   text-align: center;
-  max-width: 60%; /* Ancho máximo proporcional */
-  width: 100%; /* Ancho total en pantallas pequeñas */
-  color: #fff;
+  color: var(--text-color);
 }
 
 .expanded-content h3 {
-  font-size: 2rem; /* Fuente escalable */
-  margin-top: 5%;
-}
-
-.expanded-content p {
-  font-size: 1rem; /* Fuente relativa */
-}
-
-.expanded-content p strong {
-  font-weight: bold;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin: 1rem 0;
 }
 
 .expanded-content .video-player {
-  margin-top: 5%;
-  border-radius: 2%;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 1rem;
   overflow: hidden;
-  width: 100%; /* Ancho total del contenedor */
-  aspect-ratio: 16 / 9; /* Proporción fija */
+  aspect-ratio: 16 / 9;
 }
 
-/* Scroll personalizado */
-.movies-in-category::-webkit-scrollbar {
-  height: 5%;
-}
+/* RESPONSIVIDAD */
 
-.movies-in-category::-webkit-scrollbar-thumb {
-  background-color: #2271D1;
-  border-radius: 4%; /* Bordes redondeados */
-}
-
-.movies-in-category::-webkit-scrollbar-track {
-  background-color: #222;
-}
-
-/* Categorías dinámicas */
-.category-section[data-category="Frontend"] {
-  border-color: #29b6f6;
-  box-shadow: 0 0 5% #29b6f6;
-}
-
-/* Responsividad */
-@media (max-width: 1024px) {
-  .movie-item {
-      width: 40%; /* Ajuste dinámico para pantallas medianas */
+/* Ajustes para pantallas medianas */
+@media (min-width: 768px) {
+  .banner {
+    flex-direction: row; /* Filas en pantallas más grandes */
   }
-  .expanded-content .video-player {
-      height: 40vh; /* Altura proporcional al viewport */
+
+  .banner-text {
+    max-width: 50%;
+    text-align: left; /* Alineado a la izquierda */
+  }
+
+  .banner-heading {
+    font-size: 2.5rem; /* Más grande en desktop */
   }
 }
 
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-  .movie-item {
-      width: 60%;
-  }
-}
-
-@media (max-width: 480px) {
-  .movie-item {
-      width: 80%; /* Ancho más flexible */
+  .card {
+    width: 100%; /* Tarjeta ocupa todo el ancho */
   }
 
   .expanded-content .video-player {
-      height: 30vh; /* Altura proporcional al viewport */
+    height: 40vh; /* Altura proporcional al viewport */
+  }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 480px) {
+  .banner {
+    flex-direction: column;
+    align-items: center; /* Centra los elementos */
+    padding: 10px; /* Reduce el padding */
+    min-height: auto; /* Ajusta la altura mínima */
+  }
+
+  .banner-text {
+    max-width: 100%; /* Texto ocupa todo el ancho */
+    text-align: center; /* Centrado en móviles */
+    padding: 10px;
+  }
+
+  .banner-title {
+    font-size: 1rem; /* Reduce el tamaño del título */
+    margin-bottom: 8px;
+    padding: 5px 8px; /* Reduce el padding */
+  }
+
+  .banner-heading {
+    font-size: 1.2rem; /* Ajusta el tamaño del subtítulo */
+    margin-bottom: 10px;
+  }
+
+  .banner-description {
+    font-size: 0.9rem; /* Reduce el texto */
+    max-width: 90%; /* Reduce el ancho máximo */
+    margin: 0 auto; /* Centra el texto */
+  }
+
+  .card {
+    width: 100%; /* Tarjeta ocupa todo el ancho */
+    max-width: 300px; /* Limita el ancho máximo */
+    margin: 20px auto; /* Centra la tarjeta con margen superior */
+    height: auto; /* Permite altura flexible */
+    box-shadow: 0px 3px 15px var(--card-shadow); /* Sombra menos intensa */
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px; /* Icono más pequeño */
+    font-size: 40px;
+  }
+
+  .expanded-content .video-player {
+    height: 25vh; /* Altura más pequeña para videos */
   }
 }

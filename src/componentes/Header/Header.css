@@ -1,66 +1,63 @@
 /* Estilo general del header */
 .header {
-    background-color: #333; /* Fondo oscuro */
-    color: white; /* Texto blanco */
-    padding: 2% 5%; /* Espaciado dinámico */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    box-sizing: border-box; /* Incluye padding y borde en el ancho */
-  }
-  
-  /* Logo del header */
-  .header-logo {
-    width: auto;
-    height: 50px; /* Altura relativa */
-    max-height: 10vh; /* Limita la altura máxima relativa a la pantalla */
-    object-fit: contain; /* Mantiene proporción sin deformar */
-  }
-  
-  /* Contenedor de botones */
-  .header-buttons {
-    display: flex;
-    gap: 2%; /* Espaciado dinámico entre los botones */
-  }
-  
-  /* Estilo general de los botones */
-  .header-buttons .btn {
-    padding: 1em 2em; /* Espaciado interno flexible */
-    border-radius: 10px;
-    font-size: clamp(0.9em, 2vw, 1em); /* Tamaño escalable */
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: auto; /* Ancho flexible */
-    min-width: 120px; /* Ancho mínimo */
-  }
-  
-  /* Botón HOME */
-  .btn-home {
-    background-color: #333; /* Fondo gris oscuro */
-    color: #2271d1; /* Texto azul */
-    border: 2px solid #2271d1; /* Bordes azules */
-  }
-  
-  .btn-home:hover {
-    background-color: #555; /* Fondo más claro al hacer hover */
-    transform: scale(1.05); /* Efecto de zoom */
-  }
-  
-  /* Botón NUEVO VIDEO */
-  .btn-nuevo-video {
-    background-color: #2271d1; /* Fondo azul */
-    color: #fff; /* Texto blanco */
-    border: 2px solid #fff; /* Bordes blancos */
-  }
-  
-  .btn-nuevo-video:hover {
-    background-color: #005bb5; /* Azul más oscuro al hacer hover */
-    transform: scale(1.05); /* Efecto de zoom */
-  }
-  
+  background-color: #333; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 2%; /* Espaciado interno más pequeño */
+}
+
+/* Logo del header */
+.header-logo {
+  height: 6vh; /* Altura reducida del logo */
+  max-height: 10%; /* Altura máxima reducida */
+  object-fit: contain; /* Mantén proporción sin deformar */
+}
+
+
+/* Contenedor de botones */
+.header-buttons {
+  display: flex;
+  gap: 1rem; /* Espaciado entre botones */
+}
+
+/* Estilo general de los botones */
+.header-buttons .btn {
+  padding: 0.8em 1.5%; /* Espaciado interno más pequeño */
+  border-radius: 8px; /* Bordes ligeramente más redondeados */
+  font-size: clamp(0.9em, 2vw, 1em); /* Tamaño escalable */
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  min-width: 12%;
+}
+
+/* Botón HOME */
+.btn-home {
+  background-color: #333; /* Fondo gris oscuro */
+  color: #2271d1; /* Texto azul */
+  border: 2px solid #2271d1; /* Bordes azules */
+}
+
+.btn-home:hover {
+  background-color: #555; /* Fondo más claro al hacer hover */
+  transform: scale(1.05); /* Efecto de zoom */
+}
+
+/* Botón NUEVO VIDEO */
+.btn-nuevo-video {
+  background-color: #2271d1; /* Fondo azul */
+  color: #fff; /* Texto blanco */
+  border: 2px solid #fff; /* Bordes blancos */
+}
+
+.btn-nuevo-video:hover {
+  background-color: #005bb5; /* Azul más oscuro al hacer hover */
+  transform: scale(1.05); /* Efecto de zoom */
+}
+
   /* RESPONSIVIDAD */
   
   /* Pantallas medianas */
@@ -84,43 +81,53 @@
     }
   }
   
-  /* Pantallas pequeñas */
-  @media (max-width: 768px) {
-    .header {
-      padding: 3% 5%; /* Ajusta el relleno */
-    }
-  
-    .header-logo {
-      height: 7vh; /* Reduce la altura del logo */
-    }
-  
-    .btn {
-      padding: 0.7em 1.2em; /* Reduce el tamaño de los botones */
-      font-size: 0.8em;
-    }
+  /* Pantallas medianas */
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column; /* Orientación vertical */
+      gap: 1rem; /* Espaciado adicional entre logo y botones */
+      padding: 1rem 2rem; /* Ajuste del relleno */
   }
-  
-  /* Teléfonos móviles */
-  @media (max-width: 480px) {
-    .header {
-      padding: 4% 5%; /* Más espacio para dispositivos pequeños */
-    }
-  
-    .header-logo {
-      height: 6vh; /* Ajuste adicional del tamaño del logo */
-    }
-  
-    .header-buttons {
-      flex-wrap: wrap; /* Permite que los botones se ajusten en varias filas */
+
+  .header-logo {
+      height: 40px; /* Tamaño más pequeño */
+  }
+
+  .header-buttons {
       justify-content: center; /* Centra los botones */
-      gap: 1rem; /* Espaciado ajustado */
-    }
-  
-    .btn {
-      width: 100%; /* Botones ocupan todo el ancho */
-      max-width: 200px; /* Limita el tamaño máximo */
-      padding: 0.5em 1em; /* Espaciado reducido */
-      font-size: 0.8em;
-    }
+      gap: 1rem; /* Espaciado reducido */
   }
+
+  .btn {
+      padding: 0.7em 1.2em; /* Botones más pequeños */
+      font-size: 0.9em;
+  }
+}
+
+/* Teléfonos móviles */
+@media (max-width: 480px) {
+  .header {
+      flex-direction: column; /* Orientación vertical */
+      align-items: center; /* Centra todo horizontalmente */
+      gap: 1rem; /* Espaciado entre logo y botones */
+      padding: 1rem; /* Menos relleno para teléfonos */
+  }
+
+  .header-logo {
+      height: 30px; /* Tamaño reducido para pantallas pequeñas */
+      max-width: 80%; /* Evita que el logo ocupe demasiado espacio */
+  }
+
+  .header-buttons {
+      flex-direction: column; /* Botones en columna */
+      gap: 1rem; /* Espaciado uniforme entre botones */
+  }
+
+  .btn {
+      width: 100%; /* Botones ocupan todo el ancho disponible */
+      max-width: 200px; /* Limita el ancho máximo */
+      padding: 0.6em 1em; /* Reduce el espaciado interno */
+      font-size: 0.8em; /* Fuente más pequeña */
+  }
+}
   
