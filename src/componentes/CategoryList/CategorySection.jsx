@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactPlayer from "react-player"; // Importamos el reproductor
 import deleteImg from '../../assets/icons/delete-icon.png';
 import editImg from '../../assets/icons/edit-icon.png';
 import "./CategorySection.css";
@@ -86,20 +87,30 @@ function MovieList({ movies, deleteMovie, onEdit }) {
         ))}
   
         {selectedMovie && (
-          <div className="movie-card-expanded" onClick={handleCloseCard}>
-            <div className="expanded-content">
-              <img src={selectedMovie.imageUrl} alt={selectedMovie.title} />
-              <h3>{selectedMovie.title}</h3>
-              <p>{selectedMovie.description}</p>
-              <p>
-                <strong>Categoría:</strong> {selectedMovie.category}
-              </p>
-            </div>
+        <div className="movie-card-expanded" onClick={handleCloseCard}>
+          <div className="expanded-content" onClick={(e) => e.stopPropagation()}>
+            {/* Reproductor de YouTube */}
+            {selectedMovie.videoUrl && (
+              <ReactPlayer
+                url={selectedMovie.videoUrl}
+                playing={true}
+                controls
+                width="100%"
+                height="300px"
+                className="video-player"
+              />
+            )}
+            <h3>{selectedMovie.title}</h3>
+            <p>{selectedMovie.description}</p>
+            <p>
+              <strong>Categoría:</strong> {selectedMovie.category}
+            </p>
           </div>
-        )}
-      </div>
-    );
-  }
+        </div>
+      )}
+    </div>
+  );
+}
   
   export default MovieList;
   

@@ -1,24 +1,83 @@
+/* Footer principal */
 .footer {
-  background-color: #333; /* Esto es opcional si decides gestionarlo todo con Material UI */
-  color: white;
+  background-color: var(--footer-background-color, #333); /* Color de fondo configurable */
+  color: var(--footer-text-color, #fff); /* Color de texto configurable */
   text-align: center;
+  padding: 2% 5%; /* Espaciado dinámico (vertical y horizontal) */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  box-sizing: border-box;
 }
 
+/* Contenedor del contenido */
 .footer-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 1rem; /* Espaciado flexible */
 }
 
+/* Logo del Footer */
 .footer-logo {
-  width: 100px;
-  height: 40px;
-  object-fit: contain;
+  width: 10%; /* Escalable con relación al contenedor */
+  max-width: 120px; /* Tamaño máximo para evitar que sea demasiado grande */
+  height: auto; /* Mantiene proporciones */
+  object-fit: contain; /* Se asegura de que la imagen se ajuste sin deformarse */
 }
 
+/* Texto del Footer */
 .footer-text {
-  color: var(--footer-text-color, #fff);
-  font-size: 0.9em;
+  color: var(--footer-text-color, #fff); /* Color dinámico configurable */
+  font-size: clamp(0.8em, 2.5vw, 1em); /* Escala desde tamaños pequeños a grandes */
   margin-top: 0.5em;
+  text-align: center;
+  max-width: 80%; /* Limita el ancho del texto para mejor legibilidad */
+  line-height: 1.5; /* Mejora la separación entre líneas */
+}
+
+/* Enlaces dentro del Footer (opcional) */
+.footer a {
+  color: var(--footer-link-color, #1e90ff);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: var(--footer-link-hover-color, #ff6347); /* Color dinámico al pasar el mouse */
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .footer-logo {
+    width: 15%; /* Aumenta el tamaño relativo en pantallas medianas */
+  }
+
+  .footer-text {
+    font-size: 0.9em; /* Ajusta el tamaño del texto */
+    max-width: 90%; /* Expande el ancho para mayor flexibilidad */
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-logo {
+    width: 20%; /* Ajusta el tamaño del logo en pantallas más pequeñas */
+  }
+
+  .footer-text {
+    font-size: 0.8em; /* Reduce ligeramente el tamaño del texto */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 5%; /* Ajusta el relleno para dispositivos pequeños */
+  }
+
+  .footer-logo {
+    width: 30%; /* Más grande para facilitar la visualización */
+  }
+
+  .footer-text {
+    font-size: 0.75em; /* Texto aún más pequeño en pantallas móviles */
+  }
 }

@@ -1,56 +1,201 @@
-.banner {
-  width: 100%;
-  height: auto; /* Altura automática para adaptarse al contenido */
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+/* Estructura principal */
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5%; /* Espaciado dinámico entre las categorías */
+  margin: 5%; /* Márgenes basados en porcentaje */
+}
+
+/* Sección de categorías */
+.category-section {
+  margin-bottom: 2rem; /* Espaciado entre categorías */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 0.4rem solid; /* Borde relativo al tamaño de la pantalla */
+  box-shadow: 0 0 5%; /* Sombra proporcional al tamaño del contenedor */
+  border-radius: 1%; /* Esquinas redondeadas dinámicas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 3%; /* Espaciado interno proporcional */
+}
+
+/* Título de la categoría */
+.category-section h2 {
+  padding: 1%; /* Espaciado interno en porcentaje */
+  margin: 1%; /* Márgenes internos en porcentaje */
+  font-size: 1.5rem; /* Tamaño de fuente relativo */
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 1%; /* Bordes redondeados proporcionales */
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Lista de películas en una categoría */
+.movies-in-category {
+  display: flex;
+  flex-wrap: wrap; /* Las películas se ajustan automáticamente */
+  gap: 2%; /* Espaciado dinámico entre las películas */
+  overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+  padding-bottom: 2%; /* Espaciado inferior para mejorar diseño */
+  scrollbar-width: thin;
+  scrollbar-color: #2271D1 #222;
+}
+
+/* Películas individuales */
+.movie-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  border-radius: 5%; /* Esquinas dinámicas */
+  padding: 5%; /* Espaciado interno proporcional */
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: 20%; /* Ancho basado en el contenedor */
+  max-width: 200px; /* Límite superior para pantallas grandes */
+  box-shadow: 0 2% 5% rgba(0, 0, 0, 0.1); /* Sombra dinámica */
+  border: 0.3rem solid;
+  overflow: hidden;
+}
+
+.movie-item:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Imagen de la película */
+.movie-item img {
+  width: 100%; /* Imagen escalable dentro del contenedor */
+  aspect-ratio: 16 / 9; /* Proporción fija para la imagen */
+  object-fit: cover;
+  border-radius: 4%; /* Bordes redondeados relativos */
+}
+
+/* Título de la película */
+.movie-item h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 5%; /* Separación proporcional */
+}
+
+/* Botonera */
+.botonera {
+  display: flex;
+  justify-content: center;
+  gap: 5%; /* Espaciado dinámico */
+  width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+/* Botones de acción */
+.action-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.banner-text {
-  text-align: center;
-  margin-bottom: 16px;
-  padding: 16px;
-}
-
-.banner-text h3 {
+  gap: 0.5rem;
+  background-color: #2271D1;
   color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   font-weight: bold;
-  margin-bottom: 16px;
+  text-transform: uppercase;
 }
 
-.card {
-  border-radius: 12px;
-  box-shadow: 0px 4px 20px rgb(40 9 212);
+.action-button:hover {
+  background-color: #0056a6;
 }
 
-.card-icon {
-  opacity: 0.8;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+/* Tarjeta expandida */
+.movie-card-expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: auto;
+  padding: 5%;
 }
 
-.card-icon:hover {
-  opacity: 1;
-  transform: scale(1.2);
+.expanded-content {
+  background-color: #333;
+  padding: 5%; /* Espaciado interno proporcional */
+  border-radius: 2%; /* Bordes redondeados proporcionales */
+  text-align: center;
+  max-width: 60%; /* Ancho máximo proporcional */
+  width: 100%; /* Ancho total en pantallas pequeñas */
+  color: #fff;
+}
+
+.expanded-content h3 {
+  font-size: 2rem; /* Fuente escalable */
+  margin-top: 5%;
+}
+
+.expanded-content p {
+  font-size: 1rem; /* Fuente relativa */
+}
+
+.expanded-content p strong {
+  font-weight: bold;
+}
+
+.expanded-content .video-player {
+  margin-top: 5%;
+  border-radius: 2%;
+  overflow: hidden;
+  width: 100%; /* Ancho total del contenedor */
+  aspect-ratio: 16 / 9; /* Proporción fija */
+}
+
+/* Scroll personalizado */
+.movies-in-category::-webkit-scrollbar {
+  height: 5%;
+}
+
+.movies-in-category::-webkit-scrollbar-thumb {
+  background-color: #2271D1;
+  border-radius: 4%; /* Bordes redondeados */
+}
+
+.movies-in-category::-webkit-scrollbar-track {
+  background-color: #222;
+}
+
+/* Categorías dinámicas */
+.category-section[data-category="Frontend"] {
+  border-color: #29b6f6;
+  box-shadow: 0 0 5% #29b6f6;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .movie-item {
+      width: 40%; /* Ajuste dinámico para pantallas medianas */
+  }
+  .expanded-content .video-player {
+      height: 40vh; /* Altura proporcional al viewport */
+  }
 }
 
 @media (max-width: 768px) {
-  .banner {
-    flex-direction: column;
-    text-align: center;
+  .movie-item {
+      width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-item {
+      width: 80%; /* Ancho más flexible */
   }
 
-  .banner-text {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .card {
-    width: 100%;
-    height: auto;
+  .expanded-content .video-player {
+      height: 30vh; /* Altura proporcional al viewport */
   }
 }
