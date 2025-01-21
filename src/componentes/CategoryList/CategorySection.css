@@ -1,65 +1,96 @@
+
 :root {
-    /* Variables globales */
-    --primary-color: #2271D1;
-    --primary-hover-color: #0056a6;
-    --category-frontend: #29b6f6;
-    --category-backend: #128818;
-    --category-innovacion: #ffe626;
-    --category-gestion: #ef5350;
-    --background-color: #222;
-    --text-color: #fff;
-    --card-shadow: rgba(0, 0, 0, 0.3);
-    --card-hover-shadow: rgba(0, 0, 0, 0.5);
-  }
+    /* Colores generales */
+    --primary-color: #2271d1; /* Color primario */
+    --primary-hover-color: #0056a6; /* Color al pasar el ratón sobre los botones */
+    --category-frontend: #29b6f6; /* Color para la categoría Frontend */
+    --category-backend: #128818; /* Color para la categoría Backend */
+    --category-innovacion: #ffe626; /* Color para la categoría Innovación */
+    --category-gestion: #ef5350; /* Color para la categoría Gestión */
+  
+    /* Colores de fondo y texto */
+    --background-color: #222; /* Fondo oscuro */
+    --text-color: #fff; /* Texto en blanco */
+  
+    /* Sombras */
+    --card-shadow: rgba(0, 0, 0, 0.3); /* Sombra suave para las tarjetas */
+    --card-hover-shadow: rgba(0, 0, 0, 0.5); /* Sombra más intensa al pasar el ratón */
+  
+    /* Transición */
+    --transition-duration: 0.3s; /* Duración de la transición para efectos */
+}
   
  /* Estructura principal */
-.movie-list {
-  display: flex;
-  flex-direction: column;
-  gap: 3%;
-  margin: 2% auto;
-  padding: 2%;
-  width: 90%;
-  max-width: 1400px;
-  box-sizing: border-box;
-}
-
-/* Sección de categorías */
-.category-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: var(--background-color);
-  border-radius: 10px;
-  padding: 2%;
-  width: 100%;
-  box-shadow: 0 4px 8px var(--card-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 1.5rem; /* Más espacio entre categorías */
-}
+ .movie-list {
+    display: flex;
+    flex-direction: column; /* Alineación de las categorías en columnas */
+    gap: 3%; /* Espacio entre categorías */
+    margin: 2% auto;
+    padding: 2%;
+    width: 90%;
+    max-width: 1400px;
+    box-sizing: border-box;
+  }
+  
+  /* ----------------------------------------
+     SECCIÓN DE CATEGORÍAS
+  ---------------------------------------- */
+  
+  .category-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    padding: 2%;
+    width: 100%;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    margin-bottom: 1.5rem; /* Espacio entre categorías */
+  }
   
   .category-section h2 {
-    font-size: clamp(1.5rem, 2vw, 2rem); /* Tamaño dinámico */
+    font-size: clamp(1.5rem, 2vw, 2rem); /* Tamaño de fuente adaptable */
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 1rem;
     padding: 1%;
     border-bottom: 2px solid var(--primary-color);
     border-radius: 5px;
-    width: fit-content;
+    width: fit-content; /* Ajusta el ancho al contenido */
   }
   
-  /* Lista de películas */
-.movies-in-category {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center; /* Centrar tarjetas */
-  align-items: flex-start;
-  padding-bottom: 1rem;
-}
+  /* ----------------------------------------
+     PELÍCULAS POR CATEGORÍA
+  ---------------------------------------- */
   
-  /* Tarjetas individuales */
+  .movies-in-category {
+    display: flex;
+    flex-wrap: wrap; /* Para que las películas se acomoden en varias filas */
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+    overflow-x: auto; /* Permite desplazarse horizontalmente si hay muchas películas */
+    
+    ::-webkit-scrollbar {
+      height: 10px; /* Ancho del scrollbar */
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--primary-color); /* Color del thumb del scrollbar */
+      border-radius: 10px;
+    }
+  
+    ::-webkit-scrollbar-track {
+      background-color: var(--background-color); /* Fondo del scrollbar */
+    }
+  }
+  
+  /* ----------------------------------------
+     CADA TARJETA DE PELÍCULA
+  ---------------------------------------- */
+  
   .movie-item {
     display: flex;
     flex-direction: column;
@@ -69,91 +100,87 @@
     padding: 1.5rem;
     text-align: center;
     width: 100%;
-    max-width: 320px; /* Tamaño máximo en pantallas grandes */
+    max-width: 320px;
     box-shadow: 0 4px 8px var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+  
+    &:hover {
+      transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
+      box-shadow: 0 8px 16px var(--card-hover-shadow); /* Aumenta la sombra */
+    }
+  
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 9; /* Relación de aspecto de la imagen */
+      object-fit: cover; /* La imagen cubre toda el área */
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+  
+    h3 {
+      font-size: clamp(1rem, 1.5vw, 1.3rem); /* Tamaño de fuente adaptable */
+      color: var(--text-color);
+      margin: 0.5rem 0;
+    }
   }
   
-  .movie-item:hover {
-    transform: scale(1.05); /* Animación al pasar el cursor */
-    box-shadow: 0 8px 16px var(--card-hover-shadow);
-  }
-  
-.movie-item img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
+  /* ----------------------------------------
+     BOTONERA (botones de acción)
+  ---------------------------------------- */
 
-.movie-item h3 {
-  font-size: clamp(1rem, 1.5vw, 1.3rem);
-  color: var(--text-color);
-  margin: 0.5rem 0;
-}
-/* Botonera */
-.botonera {
+  .botonera {
     display: flex;
-    justify-content: center; /* Centra los botones */
-    gap: 1rem; /* Espaciado uniforme entre botones */
+    justify-content: center;
+    gap: 1rem;
     width: 100%;
-}
-
-/* Estilo de los botones */
-.action-button {
+  }
+  
+  .action-button {
     display: flex;
-    align-items: center; /* Alinea verticalmente imagen y texto */
-    gap: 0.5rem; /* Espaciado entre texto e imagen */
-    padding: 0.8rem 1.5rem; /* Espaciado interno del botón */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    
+    padding: 0.8rem 1.8rem; /* Ajusta el tamaño del botón. El valor de padding controla la altura y el ancho del botón */
+    
     background-color: var(--primary-color);
     color: var(--text-color);
-    font-size: 1rem; /* Tamaño consistente del texto */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
     font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.action-button:hover {
-    background-color: var(--primary-hover-color);
-}
-
-/* Contenido del botón (icono y texto) */
-.button-content {
-    display: flex;
-    align-items: center; /* Alinea verticalmente el texto e icono */
-    gap: 0.5rem; /* Espaciado entre el texto y el icono */
-}
-
-/* Imagen del botón */
-.button-content img {
-    width: 1rem; /* Tamaño uniforme de la imagen */
-    height: 1rem; /* Asegura proporción cuadrada */
-    object-fit: contain; /* Mantén las proporciones de la imagen */
-    flex-shrink: 0; /* Evita que la imagen se reduzca demasiado */
-}
-
-/* Texto del botón */
-.button-content span {
-    font-size: 1rem; /* Asegura que el tamaño del texto sea igual al de la imagen */
-    line-height: 1; /* Ajusta el espaciado vertical */
-    display: inline-block; /* Evita problemas de alineación con el texto */
-    white-space: nowrap; /* Evita que el texto se parta en líneas */
-}
+    
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+    
+    &:hover {
+      background-color: var(--primary-hover-color);
+    }
   
-  /* Tarjeta expandida */
+    .button-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    img {
+      width: 1.2rem;
+      height: 1.2rem;
+      object-fit: contain;
+    }
+  }
+  
+  /* ----------------------------------------
+     TARJETA DE PELÍCULA EXPANDIDA (para vista de detalle)
+  ---------------------------------------- */
+  
   .movie-card-expanded {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,16 +197,16 @@
     max-width: 800px;
     text-align: center;
     color: var(--text-color);
-  }
   
-  .expanded-content h3 {
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    margin: 1rem 0;
-  }
+    h3 {
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      margin: 1rem 0;
+    }
   
-  .expanded-content p {
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
-    margin: 0.5rem 0;
+    p {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      margin: 0.5rem 0;
+    }
   }
   
   .video-player {
@@ -190,7 +217,10 @@
     aspect-ratio: 16 / 9;
   }
   
-  /* Colores específicos para categorías */
+  /* ----------------------------------------
+     COLORES ESPECÍFICOS PARA CATEGORÍAS
+  ---------------------------------------- */
+  
   .category-section.frontend h2 {
     background-color: var(--category-frontend);
   }
@@ -201,90 +231,69 @@
   
   .category-section.innovacion h2 {
     background-color: var(--category-innovacion);
-    color: #333;
+    color: #333; /* Cambiar color del texto para mayor contraste */
   }
   
   .category-section.gestion h2 {
     background-color: var(--category-gestion);
   }
-  
-  /* Scroll personalizado */
-  .movies-in-category::-webkit-scrollbar {
-    height: 10px;
-  }
-  
-  .movies-in-category::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 10px;
-  }
-  
-  .movies-in-category::-webkit-scrollbar-track {
-    background-color: var(--background-color);
-  }
-  
+    
   /* Responsividad */
-  @media (max-width: 1024px) {
+/* Pantallas medianas (de tabletas a pantallas de escritorio pequeñas) */
+@media (max-width: 1024px) {
     .movie-item {
-      width: 32%; /* Tres tarjetas por fila */
+      width: 32%; /* Las tarjetas de película ocupan menos espacio */
     }
+  
     .action-button {
-        font-size: 1rem;
-        padding: 0.8rem 1rem;
-      }
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+  
       .button-content img {
         width: 1.2rem;
         height: 1.2rem;
       }
+    }
   }
   
-@media (max-width: 768px) {
-  /* Estilos generales para dispositivos con pantallas pequeñas */
-  .movie-list {
-    padding: 2% 0; /* Menor padding en teléfonos */
-  }
-
-  .category-section {
-    padding: 3%;
-    margin-bottom: 2rem; /* Más espacio entre categorías */
-  }
-
-  .movies-in-category {
-    gap: 1rem; /* Reducir espacio entre tarjetas */
-  }
-
-  .movie-item {
-    width: 48%; /* Dos tarjetas por fila en pantallas medianas */
-    padding: 1rem;
-  }
-
-  .movie-item img {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-  }
-
-  .botonera {
-    gap: 0.5rem;
-  }
-
-  .action-button {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .button-content img {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-}
+  /* Pantallas pequeñas (móviles grandes y tabletas pequeñas) */
+  @media (max-width: 768px) {
+    .movie-list {
+      padding: 2% 0;
+    }
   
+    .category-section {
+      padding: 3%;
+      margin-bottom: 2rem;
+    }
+  
+    .movies-in-category {
+      gap: 1rem;
+    }
+  
+    .movie-item {
+      width: 48%;
+      padding: 1rem;
+    }
+  
+    .botonera {
+      gap: 0.5rem;
+    }
+  
+    .action-button {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+  
+  /* Pantallas muy pequeñas (móviles pequeños) */
   @media (max-width: 480px) {
     .movie-item {
-      width: 100%; /* Una tarjeta por fila en teléfonos pequeños */
+      width: 100%;
       padding: 0.8rem;
     }
   
     .movie-item img {
-      aspect-ratio: 16 / 9;
       margin-bottom: 0.8rem;
     }
   
@@ -294,7 +303,7 @@
     }
   
     .botonera {
-      flex-direction: column; /* Botones apilados en teléfonos pequeños */
+      flex-direction: column;
       align-items: center;
       gap: 0.8rem;
     }
