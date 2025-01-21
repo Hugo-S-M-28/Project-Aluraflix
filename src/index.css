@@ -1,75 +1,87 @@
-/* Estilos globales */
+/* ===========================
+   Estilos globales
+   =========================== */
+
+/* Estilo para el body */
 body {
   /* Tamaño de la pantalla */
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+  width: 100vw; /* Asegura que el body ocupe todo el ancho de la ventana */
+  height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+  position: absolute; /* Posiciona el body en la parte superior izquierda */
   top: 0;
   left: 0;
 
-  /* Flexbox */
+  /* Flexbox para centrar los elementos en la página */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* Organiza los elementos en columna */
+  justify-content: center; /* Centra los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
 
   /* Estilos de fondo */
-  background-color: var(--background-color, #242424);
+  background-color: var(--background-color, #242424); /* Fondo oscuro con variable */
 }
 
-/* #root ajustado */
+/* ===========================
+   #root
+   =========================== */
 #root {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  /* Eliminar flexbox aquí si no es necesario */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 100%; /* Ocupa toda la altura */
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  /* Eliminar flexbox si no es necesario para el #root */
 }
 
+/* ===========================
+   Fuentes y tipografía
+   =========================== */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Fuente base */
 }
 
-/* RESPONSIVIDAD */
-/* Pantallas medianas */
+/* ===========================
+   Responsividad
+   =========================== */
+
+/* Pantallas medianas (max-width: 1024px) */
 @media (max-width: 1024px) {
   .container {
-    padding: 2rem;
+    padding: 2rem; /* Relleno más pequeño para pantallas medianas */
   }
-  
+
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Ajuste del tamaño de fuente en pantallas medianas */
   }
 }
 
-/* Pantallas pequeñas */
+/* Pantallas pequeñas (max-width: 768px) */
 @media (max-width: 768px) {
   .container {
-    padding: 1rem;
+    padding: 1rem; /* Relleno aún más pequeño */
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Reduce el tamaño del título */
   }
 
   button {
-    padding: 0.8em 1em;
-    font-size: 0.9rem;
+    padding: 0.8em 1em; /* Ajuste del padding del botón */
+    font-size: 0.9rem; /* Reducción del tamaño de fuente en botones */
   }
 }
 
-/* Teléfonos móviles */
+/* Teléfonos móviles (max-width: 480px) */
 @media (max-width: 480px) {
   .container {
-    padding: 0.5rem;
+    padding: 0.5rem; /* Relleno aún más pequeño */
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Aún más pequeño el tamaño del título */
   }
 
   button {
-    width: 100%;
-    max-width: 200px;
-    padding: 0.6em 0.8em;
+    width: 100%; /* El botón ocupa el 100% del ancho */
+    max-width: 200px; /* Límite máximo de ancho para el botón */
+    padding: 0.6em 0.8em; /* Ajuste de padding en botones móviles */
   }
 }

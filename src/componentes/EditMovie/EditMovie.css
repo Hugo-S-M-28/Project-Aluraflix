@@ -1,96 +1,111 @@
-/* Estilo del formulario */
-form {
-  background-color: #333;
-  padding: 5%; /* Relleno relativo al contenedor */
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  max-width: 70%; /* Máximo ancho del formulario */
-  margin: 20px auto; /* Centra el formulario verticalmente */
-  color: #f4f4f4;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Estilo de los labels */
-form label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
-
-/* Inputs, select y textarea */
-form input,
-form select,
-form textarea {
-  padding: 2%; /* Relleno relativo al tamaño */
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem; /* Unidad relativa para fuentes */
-  width: 100%; /* Usar todo el ancho disponible */
-  box-sizing: border-box; /* Incluye padding y borde en el ancho */
-}
-
-textarea {
-  height: 80px; /* Altura ajustable */
-  resize: none; /* Eliminar el redimensionado manual */
-}
-
-/* Botones */
-form button {
-  background-color: #333;
-  color: white;
-  padding: 10px 15px; /* Proporción adecuada */
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #555;
-}
-
-/* Fondo opaco detrás del modal */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Asegura que esté encima de todo */
-}
-
-/* Contenido del modal */
-.modal-content {
-  background-color: #555;
-  padding: 5%; /* Relleno proporcional */
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 90%; /* Ancho relativo */
-  max-width: 800px; /* Limitar el tamaño máximo */
-  z-index: 1100;
-}
-
-/* Botones generales */
-button {
-  margin: 5px;
-  padding: 10px 15px; /* Proporciones cómodas */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button[type="submit"] {
-  background-color: #4caf50;
-  color: white;
-}
-
-button[type="button"] {
-  background-color: #f44336;
-  color: white;
-}
+/* ========================
+   Estilo del formulario
+   ======================== */
+   form {
+    background-color: #333; /* Fondo oscuro */
+    padding: 5%; /* Relleno relativo al contenedor */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    max-width: 70%; /* Máximo ancho del formulario */
+    margin: 20px auto; /* Centrado horizontal y margen superior/inferior */
+    color: #f4f4f4; /* Color del texto */
+    display: flex;
+    flex-direction: column; /* Disposición de los elementos en columna */
+  }
+  
+  /* ========================
+     Estilo de los labels
+     ======================== */
+  form label {
+    display: flex;
+    flex-direction: column; /* Organiza el texto y campo en columna */
+    margin-bottom: 10px; /* Espaciado entre el label y el input */
+  }
+  
+  /* ========================
+     Estilo de Inputs, Selects y Textareas
+     ======================== */
+  form input,
+  form select,
+  form textarea {
+    padding: 2%; /* Relleno relativo al tamaño del input */
+    margin: 10px 0; /* Espaciado entre elementos */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente relativo */
+    width: 100%; /* Usa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye borde y relleno en el ancho */
+  }
+  
+  textarea {
+    height: 80px; /* Altura ajustable */
+    resize: none; /* Evita redimensionar manualmente */
+  }
+  
+  /* ========================
+     Estilo de los botones dentro del formulario
+     ======================== */
+  form button {
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    padding: 10px 15px; /* Espaciado cómodo */
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer; /* Aparece como botón clickeable */
+  }
+  
+  form button:hover {
+    background-color: #555; /* Fondo más claro al pasar el ratón */
+  }
+  
+  /* ========================
+     Estilo del modal (superposición y contenido)
+     ======================== */
+  
+  /* Fondo opaco detrás del modal */
+  .modal-overlay {
+    position: fixed; /* Fija la posición en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cubre toda la pantalla */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro y semitransparente */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    z-index: 1000; /* Asegura que esté encima de todo el contenido */
+  }
+  
+  /* Contenido del modal */
+  .modal-content {
+    background-color: #555; /* Fondo más claro que el fondo de la pantalla */
+    padding: 5%; /* Relleno proporcional al tamaño */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 90%; /* Ancho relativo */
+    max-width: 800px; /* Limita el tamaño máximo */
+    z-index: 1100; /* Se asegura de estar por encima de la superposición */
+  }
+  
+  /* ========================
+     Estilo de los botones generales
+     ======================== */
+  button {
+    margin: 5px; /* Espaciado entre los botones */
+    padding: 10px 15px; /* Espaciado cómodo */
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Indica que es un botón clickeable */
+  }
+  
+  button[type="submit"] {
+    background-color: #4caf50; /* Fondo verde para botones de submit */
+    color: white; /* Texto blanco */
+  }
+  
+  button[type="button"] {
+    background-color: #f44336; /* Fondo rojo para botones de acción negativa */
+    color: white; /* Texto blanco */
+  }
+  

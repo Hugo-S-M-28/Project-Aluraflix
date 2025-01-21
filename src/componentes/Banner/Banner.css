@@ -1,32 +1,36 @@
-/* VARIABLES GLOBALES */
+/* ----------------------------------------
+   VARIABLES GLOBALES
+---------------------------------------- */
 :root {
-  --primary-color: #29b6f6; /* Color principal */
+  --primary-color: #29b6f6; /* Color principal para botones, fondos, etc. */
   --background-color: #1a1a1a; /* Fondo general */
   --card-shadow: rgba(40, 9, 212, 0.7); /* Sombra de las tarjetas */
-  --text-color: #ffffff; /* Texto */
-  --transition-time: 0.3s; /* Transición estándar */
+  --text-color: #ffffff; /* Color del texto */
+  --transition-time: 0.3s; /* Tiempo estándar de transición */
 }
 
-/* BANNER PRINCIPAL */
+/* ----------------------------------------
+   BANNER PRINCIPAL
+---------------------------------------- */
 .banner {
-  background-size: cover;
-  background-position: center;
+  background-size: cover; /* Asegura que la imagen cubra todo el área del banner */
+  background-position: center; /* Centra la imagen */
   padding: 2rem;
-  color: var(--text-color);
-  min-height: 25vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column; /* Por defecto columna (móviles) */
+  color: var(--text-color); /* Color del texto en el banner */
+  min-height: 25vw; /* Altura mínima adaptada a la vista */
+  display: flex; 
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: space-between; /* Distribuye espacio entre los elementos */
+  flex-direction: column; /* En pantallas pequeñas (móviles) se organiza en columna */
 }
 
 .banner-text {
-  max-width: 90%;
-  text-align: center; /* Centrado por defecto */
+  max-width: 90%; /* Controla el ancho máximo */
+  text-align: center; /* Alinea el texto al centro */
 }
 
 .banner-title {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); 
   color: var(--text-color);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -37,53 +41,57 @@
 .banner-heading {
   font-weight: bold;
   margin-bottom: 1rem;
-  font-size: 1.8rem; /* Base */
+  font-size: 1.8rem; /* Tamaño base */
 }
 
 .banner-description {
   color: var(--text-color);
   max-width: 35rem;
-  font-size: 1rem;
+  font-size: 1rem; /* Tamaño de fuente ajustado */
 }
 
-/* TARJETA FLOTANTE */
+/* ----------------------------------------
+   TARJETA FLOTANTE
+---------------------------------------- */
 .floating-card {
   position: relative;
-  right: 2rem; /* Separación desde el borde derecho */
+  right: 2rem; /* Desplazamiento desde el borde derecho */
   top: 50%; /* Centra verticalmente */
   width: 90%;
-  max-width: 400px;
+  max-width: 500px; /* Controla el ancho máximo */
   height: auto;
-  max-height: 200px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0px 4px 20px rgb(40 9 212);
-  margin-top: 0; /* Elimina margen adicional */
-  transition: transform var(--transition-time) ease;
+  max-height: 320px;
+  overflow: hidden; /* Evita desbordamientos */
+  cursor: pointer; /* Cambia a cursor de mano */
+  box-shadow: 0px 4px 20px rgb(40 9 212); /* Sombra atractiva */
+  margin-top: 0;
+  transition: transform var(--transition-time) ease; /* Transición suave al hacer hover */
   z-index: 10; /* Asegura que esté en la parte superior */
 }
 
 .floating-card:hover {
-  transform: scale(1.05); /* Efecto zoom */
+  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
 }
 
 .floating-card img {
-  width: 100%;
+  width: 100%; /* Asegura que la imagen cubra toda la tarjeta */
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Asegura que la imagen no se distorsione */
 }
 
-/* Estilo del ícono en el centro de la tarjeta */
+/* ----------------------------------------
+   ÍCONO EN EL CENTRO DE LA TARJETA
+---------------------------------------- */
 .card-icon {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); /* Centrado exacto del icono */
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para destacar el ícono */
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -91,38 +99,40 @@
 }
 
 .card-icon:hover {
-  transform: scale(1.2); /* Efecto interactivo */
-  opacity: 1;
+  transform: scale(1.2); /* Efecto de ampliación del icono */
+  opacity: 1; /* Asegura que la opacidad sea 100% */
 }
 
-/* POPUP (DIÁLOGO) */
+/* ----------------------------------------
+   POPUP (DIÁLOGO)
+---------------------------------------- */
 .movie-card-expanded {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centra el contenido del popup */
   align-items: center;
-  z-index: 1000;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
   overflow: auto;
   padding: 5%;
 }
 
 .expanded-content {
-  background-color: var(--background-color);
+  background-color: var(--background-color); 
   padding: 2rem;
   border-radius: 1rem;
   width: 90%;
-  max-width: 800px;
+  max-width: 800px; /* Controla el tamaño máximo */
   text-align: center;
   color: var(--text-color);
 }
 
 .expanded-content h3 {
-  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-size: clamp(1.5rem, 5vw, 2rem); /* Tamaño flexible que ajusta según la pantalla */
   margin: 1rem 0;
 }
 
@@ -131,105 +141,105 @@
   width: 100%;
   border-radius: 1rem;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9; /* Relación de aspecto para videos */
 }
 
-/* RESPONSIVIDAD */
+/* ----------------------------------------
+   RESPONSIVIDAD
+---------------------------------------- */
 
-/* Ajustes para pantallas medianas */
+/* Ajustes para pantallas medianas (tabletas y dispositivos de 768px en adelante) */
 @media (min-width: 768px) {
   .banner {
-    flex-direction: row; /* Filas en pantallas más grandes */
+    flex-direction: row; /* Cambia a una distribución en filas */
   }
 
   .banner-text {
-    width: 100%; /* Ocupa todo el ancho en móviles */
-    max-width: 90%; /* Pequeña reducción para margen interno */
-    right: 1rem; /* Margen derecho más pequeño */
+    width: 100%; 
     max-width: 50%;
-    text-align: left; /* Alineado a la izquierda */
+    text-align: left; /* Alinea el texto a la izquierda */
   }
 
   .banner-heading {
-    font-size: 2.5rem; /* Más grande en desktop */
+    font-size: 2.5rem; /* Aumenta el tamaño de los encabezados */
   }
+
   .card {
-      position: absolute;
-      width: 100%; /* Tarjeta ocupa todo el ancho */
-      max-width: 100%;; /* Limita el ancho máximo */
-      height: auto; /* Permite altura flexible */
-      box-shadow: 0px 3px 15px var(--card-shadow); /* Sombra menos intensa */
-      right: 0rem; /* Margen derecho más pequeño */
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0px 3px 15px var(--card-shadow); /* Sombra más suave */
   }
 }
 
-/* Ajustes para pantallas pequeñas */
+/* Ajustes para pantallas pequeñas (móviles de menos de 768px) */
 @media (max-width: 768px) {
   .card {
     position: absolute;
-    width: 100%; /* Tarjeta ocupa todo el ancho */
-    max-width: 90%;; /* Limita el ancho máximo */
-    height: auto; /* Permite altura flexible */
-    box-shadow: 0px 3px 15px var(--card-shadow); /* Sombra menos intensa */
-    right: 0rem; /* Margen derecho más pequeño */
+    width: 100%;
+    max-width: 90%;
+    height: auto;
+    box-shadow: 0px 3px 15px var(--card-shadow);
+    right: 0rem;
   }
 
   .expanded-content .video-player {
-    height: 40vh; /* Altura proporcional al viewport */
+    height: 40vh; /* Ajusta la altura proporcionalmente */
   }
 }
 
-/* Ajustes para móviles */
+/* Ajustes específicos para móviles (pantallas de 480px o menos) */
 @media (max-width: 480px) {
   .banner {
     flex-direction: column;
-    align-items: center; /* Centra los elementos */
+    align-items: center;
     padding: 10px; /* Reduce el padding */
     min-height: auto; /* Ajusta la altura mínima */
   }
 
   .banner-text {
-    max-width: 100%; /* Texto ocupa todo el ancho */
-    text-align: center; /* Centrado en móviles */
+    max-width: 100%;
+    text-align: center; /* Centra el texto */
     padding: 10px;
   }
 
   .banner-title {
-    font-size: 1rem; /* Reduce el tamaño del título */
+    font-size: 1rem; /* Tamaño reducido */
     margin-bottom: 8px;
-    padding: 5px 8px; /* Reduce el padding */
+    padding: 5px 8px; /* Padding ajustado */
   }
 
   .banner-heading {
-    font-size: 1.2rem; /* Ajusta el tamaño del subtítulo */
+    font-size: 1.2rem; /* Reduce el tamaño en móviles */
     margin-bottom: 10px;
   }
 
   .banner-description {
-    font-size: 0.9rem; /* Reduce el texto */
-    max-width: 90%; /* Reduce el ancho máximo */
-    margin: 0 auto; /* Centra el texto */
+    font-size: 0.9rem; 
+    max-width: 90%;
+    margin: 0 auto;
   }
 
   .card {
     position: absolute;
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%; /* Tarjeta ocupa todo el ancho */
+    width: 100%;
     max-width: 300px; /* Limita el ancho máximo */
-    margin: 0 auto; /* Centra la tarjeta con margen superior */
-    height: auto; /* Permite altura flexible */
-    box-shadow: 0px 3px 15px var(--card-shadow); /* Sombra menos intensa */
+    margin: 0 auto;
+    height: auto;
+    box-shadow: 0px 3px 15px var(--card-shadow);
   }
 
   .card-icon {
     width: 50px;
-    height: 50px; /* Icono más pequeño */
-    font-size: 40px;
+    height: 50px;
+    font-size: 40px; /* Íconos más pequeños */
   }
 
   .expanded-content .video-player {
-    height: 25vh; /* Altura más pequeña para videos */
+    height: 25vh; /* Ajuste de la altura del video */
   }
 }

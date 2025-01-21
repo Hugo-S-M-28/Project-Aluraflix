@@ -1,40 +1,59 @@
-/* Estilo general del header */
+/* ===============================
+   ESTILO GENERAL DEL HEADER
+   =============================== */
+
+/* Contenedor principal del header */
 .header {
   background-color: #333; /* Fondo oscuro */
   color: white; /* Texto blanco */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Distribuye los elementos a los extremos */
+  align-items: center; /* Centra verticalmente */
   padding: 1% 2%; /* Espaciado interno más pequeño */
 }
 
-/* Logo del header */
+/* ===============================
+   LOGO DEL HEADER
+   =============================== */
+
+/* Estilo del logo */
 .header-logo {
   height: 6vh; /* Altura reducida del logo */
   max-height: 10%; /* Altura máxima reducida */
   object-fit: contain; /* Mantén proporción sin deformar */
 }
 
+/* ===============================
+   CONTENEDOR DE LOS BOTONES
+   =============================== */
 
-/* Contenedor de botones */
+/* Contenedor de los botones dentro del header */
 .header-buttons {
   display: flex;
   gap: 1rem; /* Espaciado entre botones */
 }
 
-/* Estilo general de los botones */
+/* ===============================
+   ESTILO GENERAL DE LOS BOTONES
+   =============================== */
+
+/* Estilo común para todos los botones */
 .header-buttons .btn {
   padding: 0.8em 1.5%; /* Espaciado interno más pequeño */
   border-radius: 8px; /* Bordes ligeramente más redondeados */
-  font-size: clamp(0.9em, 2vw, 1em); /* Tamaño escalable */
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  min-width: 12%;
+  font-size: clamp(0.9em, 2vw, 1em); /* Tamaño escalable según el tamaño de pantalla */
+  font-weight: 600; /* Texto en negrita */
+  text-align: center; /* Centrado del texto */
+  cursor: pointer; /* Indica que el botón es interactivo */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Efecto suave al pasar el mouse */
+  min-width: 12%; /* Ancho mínimo para los botones */
 }
 
-/* Botón HOME */
+/* ===============================
+   ESTILO PARA BOTÓN HOME
+   =============================== */
+
+/* Estilo específico para el botón HOME */
 .header-buttons .btn-home {
   background-color: #333; /* Fondo gris oscuro */
   color: #2271d1; /* Texto azul */
@@ -46,7 +65,11 @@
   transform: scale(1.05); /* Efecto de zoom */
 }
 
-/* Botón NUEVO VIDEO */
+/* ===============================
+   ESTILO PARA BOTÓN NUEVO VIDEO
+   =============================== */
+
+/* Estilo específico para el botón NUEVO VIDEO */
 .header-buttons .btn-nuevo-video {
   background-color: #2271d1; /* Fondo azul */
   color: #fff; /* Texto blanco */
@@ -58,75 +81,77 @@
   transform: scale(1.05); /* Efecto de zoom */
 }
 
-  /* RESPONSIVIDAD */  
-  /* Pantallas medianas */
-  @media (max-width: 1024px) {
-    .header {
-      flex-direction: column; /* Cambia la orientación para mayor flexibilidad */
-      gap: 1rem; /* Espaciado entre el logo y los botones */
-    }
-  
-    .header-logo {
-      height: 8vh; /* Altura relativa a la pantalla */
-    }
-  
-    .header-buttons {
-      gap: 3%; /* Espaciado más amplio */
-    }
-  
-    .btn {
-      padding: 0.8em 1.5em; /* Reduce el tamaño de los botones */
-      font-size: 0.9em;
-    }
+/* ===============================
+   RESPONSIVIDAD (Medios de Pantalla)
+   =============================== */
+
+/* Para pantallas medianas (1024px o menos) */
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column; /* Orientación en columna para mejorar la flexibilidad */
+    gap: 1rem; /* Espaciado entre el logo y los botones */
   }
-  
-  /* Pantallas medianas */
+
+  .header-logo {
+    height: 8vh; /* Altura relativa al tamaño de la pantalla */
+  }
+
+  .header-buttons {
+    gap: 3%; /* Espaciado más amplio entre los botones */
+  }
+
+  .btn {
+    padding: 0.8em 1.5em; /* Tamaño reducido para los botones */
+    font-size: 0.9em; /* Fuente más pequeña */
+  }
+}
+
+/* Para pantallas más pequeñas (768px o menos) */
 @media (max-width: 768px) {
   .header {
-      flex-direction: column; /* Orientación vertical */
-      gap: 1rem; /* Espaciado adicional entre logo y botones */
-      padding: 1rem 2rem; /* Ajuste del relleno */
+    flex-direction: column; /* Establece una orientación vertical */
+    gap: 1rem; /* Espaciado adicional entre logo y botones */
+    padding: 1rem 2rem; /* Ajusta el relleno */
   }
 
   .header-logo {
-      height: 40px; /* Tamaño más pequeño */
+    height: 40px; /* Tamaño más pequeño para el logo */
   }
 
   .header-buttons {
-      justify-content: center; /* Centra los botones */
-      gap: 1rem; /* Espaciado reducido */
+    justify-content: center; /* Centra los botones */
+    gap: 1rem; /* Espaciado reducido */
   }
 
   .btn {
-      padding: 0.7em 1.2em; /* Botones más pequeños */
-      font-size: 0.9em;
+    padding: 0.7em 1.2em; /* Botones más pequeños */
+    font-size: 0.9em; /* Fuente más pequeña */
   }
 }
 
-/* Teléfonos móviles */
+/* Para dispositivos móviles (480px o menos) */
 @media (max-width: 480px) {
   .header {
-      flex-direction: column; /* Orientación vertical */
-      align-items: center; /* Centra todo horizontalmente */
-      gap: 1rem; /* Espaciado entre logo y botones */
-      padding: 1rem; /* Menos relleno para teléfonos */
+    flex-direction: column; /* Orden vertical */
+    align-items: center; /* Centra los elementos */
+    gap: 1rem; /* Espaciado entre logo y botones */
+    padding: 1rem; /* Menos relleno en teléfonos */
   }
 
   .header-logo {
-      height: 30px; /* Tamaño reducido para pantallas pequeñas */
-      max-width: 80%; /* Evita que el logo ocupe demasiado espacio */
+    height: 30px; /* Tamaño del logo reducido */
+    max-width: 80%; /* Evita que el logo ocupe demasiado espacio */
   }
 
   .header-buttons {
-      flex-direction: column; /* Botones en columna */
-      gap: 1rem; /* Espaciado uniforme entre botones */
+    flex-direction: column; /* Los botones se disponen en columna */
+    gap: 1rem; /* Espaciado uniforme entre botones */
   }
 
   .btn {
-      width: 100%; /* Botones ocupan todo el ancho disponible */
-      max-width: 200px; /* Limita el ancho máximo */
-      padding: 0.6em 1em; /* Reduce el espaciado interno */
-      font-size: 0.8em; /* Fuente más pequeña */
+    width: 100%; /* Los botones ocupan todo el ancho disponible */
+    max-width: 200px; /* Limita el ancho máximo de los botones */
+    padding: 0.6em 1em; /* Reducción en espaciado interno */
+    font-size: 0.8em; /* Fuente más pequeña */
   }
 }
-  
