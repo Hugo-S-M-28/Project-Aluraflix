@@ -78,51 +78,9 @@ const Banner = () => {
             </Box>
 
             {/* Tarjeta flotante */}
-            <Card
-                className="card"
-                onClick={handleCardClick}
-                sx={{
-                    cursor: 'pointer',
-                    width: { xs: '90%', md: '300px' },
-                    height: { xs: 'auto', md: '200px' },
-                    position: 'relative',
-                    overflow: 'hidden',
-                    boxShadow: '0px 4px 20px rgb(40 9 212)',
-                    marginTop: { xs: '20px', md: '0' },
-                    transition: 'transform 0.3s ease',
-                    '&:hover': {
-                        transform: 'scale(1.05)', // Efecto de zoom al hacer hover
-                    },
-                    '& img': {
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                    },
-                }}
-            >
+            <Card className="floating-card" onClick={handleCardClick}>
                 <Box component="img" src={imageCard} alt="Miniatura" />
-                <Box
-                    className="card-icon"
-                    sx={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        color: '#fff',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                        borderRadius: '50%',
-                        width: '60px',
-                        height: '60px',
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                            transform: 'scale(1.2)', // Efecto interactivo en el ícono
-                            opacity: 1,
-                        },
-                    }}
-                >
+                <Box className="card-icon">
                     <PlayCircleOutlineIcon sx={{ fontSize: 60 }} />
                 </Box>
             </Card>

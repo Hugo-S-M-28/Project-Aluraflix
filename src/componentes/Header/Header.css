@@ -35,31 +35,30 @@
 }
 
 /* Botón HOME */
-.btn-home {
+.header-buttons .btn-home {
   background-color: #333; /* Fondo gris oscuro */
   color: #2271d1; /* Texto azul */
   border: 2px solid #2271d1; /* Bordes azules */
 }
 
-.btn-home:hover {
+.header-buttons .btn-home:hover {
   background-color: #555; /* Fondo más claro al hacer hover */
   transform: scale(1.05); /* Efecto de zoom */
 }
 
 /* Botón NUEVO VIDEO */
-.btn-nuevo-video {
+.header-buttons .btn-nuevo-video {
   background-color: #2271d1; /* Fondo azul */
   color: #fff; /* Texto blanco */
   border: 2px solid #fff; /* Bordes blancos */
 }
 
-.btn-nuevo-video:hover {
+.header-buttons .btn-nuevo-video:hover {
   background-color: #005bb5; /* Azul más oscuro al hacer hover */
   transform: scale(1.05); /* Efecto de zoom */
 }
 
-  /* RESPONSIVIDAD */
-  
+  /* RESPONSIVIDAD */  
   /* Pantallas medianas */
   @media (max-width: 1024px) {
     .header {

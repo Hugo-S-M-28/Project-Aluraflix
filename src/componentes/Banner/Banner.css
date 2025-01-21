@@ -47,47 +47,52 @@
 }
 
 /* TARJETA FLOTANTE */
-.card {
-  cursor: pointer;
-  width: 90%;
-  max-width: 350px;
-  height: auto;
+.floating-card {
   position: relative;
+  right: 2rem; /* Separación desde el borde derecho */
+  top: 50%; /* Centra verticalmente */
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  max-height: 200px;
   overflow: hidden;
-  box-shadow: 0px 4px 20px var(--card-shadow);
-  margin-top: 2rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 20px rgb(40 9 212);
+  margin-top: 0; /* Elimina margen adicional */
   transition: transform var(--transition-time) ease;
+  z-index: 10; /* Asegura que esté en la parte superior */
 }
 
-.card img {
+.floating-card:hover {
+  transform: scale(1.05); /* Efecto zoom */
+}
+
+.floating-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.card:hover {
-  transform: scale(1.05); /* Efecto de zoom */
-}
-
-/* ÍCONO FLOTANTE DE LA TARJETA */
+/* Estilo del ícono en el centro de la tarjeta */
 .card-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--text-color);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
-  transition: all var(--transition-time) ease;
+  width: 60px;
+  height: 60px;
+  transition: all 0.3s ease;
 }
 
 .card-icon:hover {
-  transform: translate(-50%, -50%) scale(1.2); /* Efecto interactivo */
+  transform: scale(1.2); /* Efecto interactivo */
+  opacity: 1;
 }
 
 /* POPUP (DIÁLOGO) */
@@ -138,6 +143,9 @@
   }
 
   .banner-text {
+    width: 100%; /* Ocupa todo el ancho en móviles */
+    max-width: 90%; /* Pequeña reducción para margen interno */
+    right: 1rem; /* Margen derecho más pequeño */
     max-width: 50%;
     text-align: left; /* Alineado a la izquierda */
   }
@@ -145,12 +153,25 @@
   .banner-heading {
     font-size: 2.5rem; /* Más grande en desktop */
   }
+  .card {
+      position: absolute;
+      width: 100%; /* Tarjeta ocupa todo el ancho */
+      max-width: 100%;; /* Limita el ancho máximo */
+      height: auto; /* Permite altura flexible */
+      box-shadow: 0px 3px 15px var(--card-shadow); /* Sombra menos intensa */
+      right: 0rem; /* Margen derecho más pequeño */
+  }
 }
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
   .card {
+    position: absolute;
     width: 100%; /* Tarjeta ocupa todo el ancho */
+    max-width: 90%;; /* Limita el ancho máximo */
+    height: auto; /* Permite altura flexible */
+    box-shadow: 0px 3px 15px var(--card-shadow); /* Sombra menos intensa */
+    right: 0rem; /* Margen derecho más pequeño */
   }
 
   .expanded-content .video-player {
@@ -191,9 +212,13 @@
   }
 
   .card {
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%);
     width: 100%; /* Tarjeta ocupa todo el ancho */
     max-width: 300px; /* Limita el ancho máximo */
-    margin: 20px auto; /* Centra la tarjeta con margen superior */
+    margin: 0 auto; /* Centra la tarjeta con margen superior */
     height: auto; /* Permite altura flexible */
     box-shadow: 0px 3px 15px var(--card-shadow); /* Sombra menos intensa */
   }
