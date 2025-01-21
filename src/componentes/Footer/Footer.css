@@ -1,19 +1,55 @@
+/* ===========================
+   Estilos generales del pie de página
+   =========================== */
 
-/* Responsividad */
+/* Estilo base para el pie de página */
+.footer {
+  background-color: #333; /* Fondo oscuro para el pie de página */
+  color: white; /* Texto blanco para contraste */
+  text-align: center; /* Centra el texto */
+  padding: 20px 10px; /* Relleno alrededor del pie de página */
+}
+
+/* Contenido del pie de página */
+.footer-content {
+  display: flex; /* Usamos flexbox para centrar y organizar los elementos */
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+/* Estilo para el logo en el pie de página */
+.footer-logo {
+  width: 100px; /* Tamaño inicial del logo */
+  height: 40px; /* Altura fija */
+  object-fit: contain; /* Mantiene la relación de aspecto del logo */
+}
+
+/* Estilo para el texto del pie de página */
+.footer-text {
+  font-size: 0.9em; /* Tamaño del texto ajustado */
+}
+
+/* ===========================
+   Responsividad
+   =========================== */
+
+/* Pantallas medianas (max-width: 1024px) */
 @media (max-width: 1024px) {
   .footer-logo {
-    width: 15%; /* Aumenta el tamaño relativo en pantallas medianas */
+    width: 15%; /* Hace el logo más pequeño en pantallas medianas */
   }
 
   .footer-text {
-    font-size: 0.9em; /* Ajusta el tamaño del texto */
-    max-width: 90%; /* Expande el ancho para mayor flexibilidad */
+    font-size: 0.9em; /* Ajuste del tamaño del texto para pantallas medianas */
+    max-width: 90%; /* Aumenta la flexibilidad del ancho del texto */
   }
 }
 
+/* Pantallas pequeñas (max-width: 768px) */
 @media (max-width: 768px) {
   .footer-logo {
-    width: 20%; /* Ajusta el tamaño del logo en pantallas más pequeñas */
+    width: 20%; /* Ajuste del tamaño del logo en pantallas más pequeñas */
   }
 
   .footer-text {
@@ -21,16 +57,17 @@
   }
 }
 
+/* Teléfonos móviles (max-width: 480px) */
 @media (max-width: 480px) {
   .footer {
-    padding: 5%; /* Ajusta el relleno para dispositivos pequeños */
+    padding: 5%; /* Ajusta el relleno para pantallas pequeñas */
   }
 
   .footer-logo {
-    width: 30%; /* Más grande para facilitar la visualización */
+    width: 30%; /* Aumenta el tamaño del logo en pantallas móviles */
   }
 
   .footer-text {
-    font-size: 0.75em; /* Texto aún más pequeño en pantallas móviles */
+    font-size: 0.75em; /* Texto aún más pequeño para dispositivos móviles */
   }
 }
